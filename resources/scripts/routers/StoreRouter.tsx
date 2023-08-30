@@ -12,6 +12,7 @@ import OverviewContainer from '@/components/store/OverviewContainer';
 import MobileNavigation from '@/components/elements/MobileNavigation';
 import ResourcesContainer from '@/components/store/ResourcesContainer';
 import SubNavigation from '@/components/elements/SubNavigation';
+import PlanContainer from '@/components/store/PlanContainer';
 
 export default () => {
     const location = useLocation();
@@ -43,6 +44,11 @@ export default () => {
                             Create Server <Icon.Server className={'ml-1'} size={18} />
                         </div>
                     </NavLink>
+                    <NavLink to={`${match.path}/plan`}>
+                        <div className={'flex items-center justify-between'}>
+                            Available Plans <Icon.Clipboard className={'ml-1'} size={18} />
+                        </div>
+                    </NavLink>
                 </div>
             </SubNavigation>
             <TransitionRouter>
@@ -58,6 +64,9 @@ export default () => {
                     </Route>
                     <Route path={`${match.path}/create`} exact>
                         <CreateContainer />
+                    </Route>
+                    <Route path={`${match.path}/plan`} exact>
+                        <PlanContainer />
                     </Route>
                     <Route path={'*'}>
                         <NotFound />
